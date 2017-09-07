@@ -1,10 +1,10 @@
-package main
+package conf
 
 import (
 	"github.com/BurntSushi/toml"
 )
 
-type Config struct {
+type Type struct {
 	WindowWidth  int
 	WindowHeight int
 	IsResizable  bool
@@ -12,9 +12,9 @@ type Config struct {
 	WindowName   string
 }
 
-func ReadConfig() Config {
-	var conf Config
-	if _, err := toml.DecodeFile("./config.toml", &conf); err != nil {
+func Read() Type {
+	var conf Type
+	if _, err := toml.DecodeFile("./conf.toml", &conf); err != nil {
 		panic(err)
 	}
 	return conf

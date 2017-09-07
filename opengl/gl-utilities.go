@@ -9,6 +9,7 @@ import (
 
 	"github.com/go-gl/gl/v3.3-core/gl"
 	"github.com/go-gl/glfw/v3.2/glfw"
+	"github.com/tplk/opengl/opengl/conf"
 )
 
 const (
@@ -16,7 +17,7 @@ const (
 )
 
 // get window reference from this function.
-func InitOpenGL(config Config) *glfw.Window {
+func InitOpenGL(config conf.Type) *glfw.Window {
 	// GLFW event handling must run on the main OS thread
 	runtime.LockOSThread()
 
@@ -33,7 +34,7 @@ func InitOpenGL(config Config) *glfw.Window {
 	return window
 }
 
-func initGlfw(config Config) *glfw.Window {
+func initGlfw(config conf.Type) *glfw.Window {
 	if err := glfw.Init(); err != nil {
 		log.Fatalln("failed to initialize glfw:", err)
 	}

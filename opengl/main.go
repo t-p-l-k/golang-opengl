@@ -2,11 +2,11 @@ package main
 
 import (
 	"flag"
-
 	"fmt"
 
 	"github.com/go-gl/gl/v3.3-core/gl"
 	"github.com/go-gl/glfw/v3.2/glfw"
+	"github.com/tplk/opengl/opengl/conf"
 )
 
 func main() {
@@ -17,7 +17,7 @@ func main() {
 	if *bender {
 		fragShader = "bender.frag"
 	}
-	config := ReadConfig()
+	config := conf.Read()
 	window := InitOpenGL(config)
 	defer glfw.Terminate()
 
